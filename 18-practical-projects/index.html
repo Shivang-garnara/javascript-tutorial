@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Level 18 — Practical JavaScript Projects Showcase</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0b1120;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { color: #38bdf8; margin-bottom: 8px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .project-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .project-card h2 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #facc15;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 10px;
+    }
+    /* Calculator UI */
+    .calc-screen {
+      background: #0f172a;
+      padding: 12px;
+      text-align: right;
+      font-size: 24px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-family: monospace;
+      color: #38bdf8;
+      min-height: 48px;
+    }
+    .calc-btn-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #334155;
+      color: #fff;
+      transition: background 0.15s;
+    }
+    button:hover { background: #475569; }
+    button.op-btn { background: #3b82f6; }
+    button.op-btn:hover { background: #2563eb; }
+    button.eq-btn { background: #10b981; }
+    button.eq-btn:hover { background: #059669; }
+    button.clear-btn { background: #ef4444; }
+    button.clear-btn:hover { background: #dc2626; }
+
+    /* Inputs */
+    input[type="text"], input[type="number"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .meter-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: #334155;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s, background-color 0.3s;
+    }
+    .tag {
+      font-size: 13px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px dashed #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>🚀 Level 18: Practical Projects Showcase</h1>
+    <p>Hands-on interactive implementations demonstrating real JavaScript DOM & State Management</p>
+  </div>
+
+  <div class="grid">
+    <!-- Project 1: Calculator -->
+    <div class="project-card">
+      <h2>🧮 Project 1: Calculator</h2>
+      <div id="calcDisplay" class="calc-screen">0</div>
+      <div class="calc-btn-grid">
+        <button class="clear-btn" onclick="calcClear()">AC</button>
+        <button onclick="calcAppend('/')" class="op-btn">/</button>
+        <button onclick="calcAppend('*')" class="op-btn">×</button>
+        <button onclick="calcAppend('-')" class="op-btn">-</button>
+        
+        <button onclick="calcAppend('7')">7</button>
+        <button onclick="calcAppend('8')">8</button>
+        <button onclick="calcAppend('9')">9</button>
+        <button onclick="calcAppend('+')" class="op-btn">+</button>
+        
+        <button onclick="calcAppend('4')">4</button>
+        <button onclick="calcAppend('5')">5</button>
+        <button onclick="calcAppend('6')">6</button>
+        <button onclick="calcEquals()" class="eq-btn" style="grid-row: span 2; height:100%;">=</button>
+        
+        <button onclick="calcAppend('1')">1</button>
+        <button onclick="calcAppend('2')">2</button>
+        <button onclick="calcAppend('3')">3</button>
+        
+        <button onclick="calcAppend('0')" style="grid-column: span 2;">0</button>
+        <button onclick="calcAppend('.')">.</button>
+      </div>
+    </div>
+
+    <!-- Project 2: Number Guessing Game -->
+    <div class="project-card">
+      <h2>🎯 Project 2: Guess The Number (1-100)</h2>
+      <p id="guessHint" style="color:#cbd5e1; font-size:14px;">Guess a number between 1 and 100.</p>
+      <input type="number" id="guessInput" placeholder="Enter your guess (1-100)" min="1" max="100" />
+      <button onclick="handleGuess()" style="width:100%; background:#facc15; color:#0f172a;">Submit Guess</button>
+      <p id="guessStatus" style="font-weight:bold; margin-top:12px; min-height:20px;"></p>
+      <button onclick="resetGuessGame()" style="width:100%; background:#475569; font-size:12px; margin-top:8px;">New Secret Number</button>
+    </div>
+
+    <!-- Project 6: Password Strength Checker -->
+    <div class="project-card">
+      <h2>🔑 Project 6: Password Strength Meter</h2>
+      <input type="password" id="passInput" placeholder="Type a password to test..." oninput="checkPasswordStrength()" />
+      <div class="meter-bar">
+        <div id="meterFill" class="meter-fill"></div>
+      </div>
+      <p id="passLabel" style="font-size:14px; color:#94a3b8;">Strength: Enter password</p>
+      <ul style="font-size:12px; color:#cbd5e1; padding-left:18px; line-height:1.6;">
+        <li>At least 8 characters</li>
+        <li>Contains uppercase & lowercase</li>
+        <li>Contains numbers</li>
+        <li>Contains special symbols (!@#$%^&*)</li>
+      </ul>
+    </div>
+
+    <!-- Project 8: Shopping Cart & Totals -->
+    <div class="project-card">
+      <h2>🛒 Project 8: Interactive Cart</h2>
+      <div style="display:flex; gap:8px; margin-bottom:12px;">
+        <button onclick="addItemToCart('Wireless Earbuds', 49)" style="flex:1; font-size:13px; background:#38bdf8; color:#0f172a;">+ Earbuds ($49)</button>
+        <button onclick="addItemToCart('Mechanical Keyboard', 89)" style="flex:1; font-size:13px; background:#a855f7; color:#fff;">+ Keyboard ($89)</button>
+      </div>
+      <div id="cartItemsList" style="min-height:80px;">
+        <p style="color:#64748b; font-size:13px;">Cart is empty.</p>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-weight:bold; margin-top:15px; border-top:1px solid #334155; padding-top:10px;">
+        <span>Total:</span>
+        <span id="cartTotalPrice" style="color:#10b981;">$0.00</span>
+      </div>
+      <button onclick="clearCart()" style="width:100%; margin-top:8px; background:#dc2626; font-size:12px;">Clear Cart</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
