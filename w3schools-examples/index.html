@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W3Schools JavaScript Examples — Interactive Hub</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0b1120;
+      color: #f8fafc;
+      margin: 0;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { color: #facc15; margin-bottom: 6px; }
+    .header p { color: #94a3b8; font-size: 15px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      max-width: 1140px;
+      width: 100%;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h2 {
+      font-size: 18px;
+      color: #38bdf8;
+      margin-top: 0;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 10px;
+    }
+    .card-content { margin-bottom: 16px; }
+
+    /* Button styles */
+    button {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.15s;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    button:hover { background: #7dd3fc; }
+    button.btn-warn { background: #facc15; }
+    button.btn-warn:hover { background: #fde047; }
+    button.btn-danger { background: #ef4444; color: #fff; }
+    button.btn-danger:hover { background: #dc2626; }
+    button.btn-success { background: #10b981; color: #fff; }
+    button.btn-success:hover { background: #059669; }
+
+    /* Inputs */
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      background: #0f172a;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    /* Lightbulb Graphic */
+    .bulb-container {
+      text-align: center;
+      padding: 15px;
+      background: #0f172a;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .bulb-svg {
+      width: 80px;
+      height: 80px;
+      transition: filter 0.3s ease;
+    }
+    .bulb-on {
+      fill: #facc15 !important;
+      filter: drop-shadow(0 0 15px #facc15);
+    }
+    .bulb-off {
+      fill: #475569 !important;
+      filter: none;
+    }
+
+    /* Clock */
+    .clock-display {
+      font-size: 32px;
+      font-family: monospace;
+      color: #38bdf8;
+      text-align: center;
+      padding: 15px;
+      background: #0f172a;
+      border-radius: 8px;
+      letter-spacing: 2px;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #334155;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    th { background: #0f172a; color: #38bdf8; }
+
+    /* Hover Box */
+    .hover-box {
+      width: 100%;
+      height: 90px;
+      background: #334155;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    /* Animation Track */
+    .anim-track {
+      width: 100%;
+      height: 50px;
+      background: #0f172a;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .anim-box {
+      width: 40px;
+      height: 40px;
+      background: #facc15;
+      border-radius: 6px;
+      position: absolute;
+      top: 5px;
+      left: 0;
+    }
+
+    /* Accordion */
+    .accordion-btn {
+      width: 100%;
+      text-align: left;
+      padding: 10px 14px;
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+    .accordion-panel {
+      padding: 10px 14px;
+      background: #1e293b;
+      border-left: 3px solid #38bdf8;
+      margin-top: 4px;
+      display: none;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>📚 W3Schools JavaScript Examples Collection</h1>
+    <p>Live interactive implementations of all official W3Schools JavaScript tutorials & examples</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- 1. Famous Lightbulb Example -->
+    <div class="card">
+      <div>
+        <h2>💡 1. The Classic Lightbulb</h2>
+        <div class="card-content">
+          <p style="font-size:13px; color:#94a3b8;">Demonstrating changing HTML attributes and state:</p>
+          <div class="bulb-container">
+            <svg id="bulbGraphic" class="bulb-svg bulb-off" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm-2 17h4v1h-4v-1zm1 2h2v1h-2v-1z"/>
+            </svg>
+            <p id="bulbState" style="margin:6px 0 0; font-size:13px;">Light is OFF</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button onclick="turnBulbOn()" class="btn-warn">Turn ON 💡</button>
+        <button onclick="turnBulbOff()" class="btn-danger">Turn OFF 🌑</button>
+      </div>
+    </div>
+
+    <!-- 2. Dynamic Content & Style Manipulator -->
+    <div class="card">
+      <div>
+        <h2>🎨 2. Changing HTML Content & CSS</h2>
+        <div class="card-content">
+          <div style="background:#0f172a; padding:15px; border-radius:8px; min-height:80px; display:flex; align-items:center; justify-content:center;">
+            <p id="styleDemoText" style="margin:0; font-size:16px; color:#cbd5e1; transition:all 0.2s;">
+              JavaScript can change HTML and CSS!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button onclick="changeFontSize()">Bigger Text</button>
+        <button onclick="changeTextColor()">Change Color</button>
+        <button onclick="toggleVisibility()" class="btn-warn">Hide / Show</button>
+        <button onclick="resetStyleDemo()" style="background:#64748b; color:#fff;">Reset</button>
+      </div>
+    </div>
+
+    <!-- 3. Form Range Validation (1 to 10) -->
+    <div class="card">
+      <div>
+        <h2>🛡️ 3. Form Input Range Validation</h2>
+        <div class="card-content">
+          <p style="font-size:13px; color:#94a3b8;">Enter a number between 1 and 10:</p>
+          <input type="text" id="rangeInput" placeholder="e.g. 7" />
+          <p id="validationFeedback" style="font-weight:bold; font-size:14px; min-height:22px; margin:0;"></p>
+        </div>
+      </div>
+      <div>
+        <button onclick="validateRange()" class="btn-success">Validate Input</button>
+      </div>
+    </div>
+
+    <!-- 4. Live Digital Clock (setInterval) -->
+    <div class="card">
+      <div>
+        <h2>⏱️ 4. Live Digital Clock</h2>
+        <div class="card-content">
+          <p style="font-size:13px; color:#94a3b8;">Updated every second via <code>setInterval()</code>:</p>
+          <div id="liveClock" class="clock-display">00:00:00 AM</div>
+          <p id="currentDate" style="text-align:center; color:#94a3b8; font-size:13px; margin-top:8px;"></p>
+        </div>
+      </div>
+      <div>
+        <button onclick="toggleClock()" id="clockToggleBtn" class="btn-warn">Pause Clock</button>
+      </div>
+    </div>
+
+    <!-- 5. Dynamic HTML Table Generator -->
+    <div class="card">
+      <div>
+        <h2>📊 5. Dynamic Table Builder</h2>
+        <div class="card-content">
+          <div style="display:flex; gap:6px;">
+            <input type="text" id="nameInput" placeholder="Name" style="flex:1;" />
+            <input type="text" id="roleInput" placeholder="Role" style="flex:1;" />
+          </div>
+          <table id="dynamicTable">
+            <thead>
+              <tr><th>Name</th><th>Role</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Shivang</td><td>Lead Dev</td><td><button onclick="deleteRow(this)" class="btn-danger" style="padding:2px 8px; font-size:11px;">✕</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <button onclick="addTableRow()" class="btn-success">+ Add Table Row</button>
+      </div>
+    </div>
+
+    <!-- 6. Mouse Events (Hover Box) -->
+    <div class="card">
+      <div>
+        <h2>🖱️ 6. Mouse Events (Over & Out)</h2>
+        <div class="card-content">
+          <p style="font-size:13px; color:#94a3b8;">Hover your mouse over the box below:</p>
+          <div id="hoverBox" class="hover-box" onmouseover="mouseOverBox()" onmouseout="mouseOutBox()">
+            Hover Over Me!
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px; color:#64748b; margin:0;">Uses <code>onmouseover</code> & <code>onmouseout</code> attributes.</p>
+      </div>
+    </div>
+
+    <!-- 7. JavaScript Moving Animation -->
+    <div class="card">
+      <div>
+        <h2>🏃 7. JavaScript Moving Box Animation</h2>
+        <div class="card-content">
+          <div class="anim-track">
+            <div id="movingBox" class="anim-box"></div>
+          </div>
+          <p id="animStatus" style="font-size:13px; color:#94a3b8;">Ready to animate across the track.</p>
+        </div>
+      </div>
+      <div>
+        <button onclick="startBoxAnimation()" class="btn-success">Start Move Animation</button>
+        <button onclick="resetBoxAnimation()" style="background:#64748b; color:#fff;">Reset</button>
+      </div>
+    </div>
+
+    <!-- 8. Interactive Collapsible Accordion -->
+    <div class="card">
+      <div>
+        <h2>📂 8. Collapsible FAQ Accordion</h2>
+        <div class="card-content">
+          <button class="accordion-btn" onclick="toggleAccordion('acc1')">
+            <span>What is JavaScript?</span> <span>▼</span>
+          </button>
+          <div id="acc1" class="accordion-panel">
+            JavaScript is the world's most popular lightweight, interpreted compiled programming language designed for web interactivity.
+          </div>
+
+          <button class="accordion-btn" onclick="toggleAccordion('acc2')" style="margin-top:8px;">
+            <span>Why use external .js files?</span> <span>▼</span>
+          </button>
+          <div id="acc2" class="accordion-panel">
+            External files separate HTML markup and programming logic, making code clean, reusable, and cached by web browsers!
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px; color:#64748b; margin:0;">Uses DOM class and display toggles.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="examples.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>W3Schools Example: Dynamic Table</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; background: #0f172a; color: #fff; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #334155; padding: 10px; text-align: left; }
+    th { background: #1e293b; color: #38bdf8; }
+    input { padding: 8px 12px; background: #1e293b; border: 1px solid #475569; border-radius: 4px; color: #fff; margin-right: 6px; }
+    button { padding: 8px 14px; background: #10b981; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; color: #fff; }
+    .del-btn { background: #ef4444; padding: 4px 8px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h2>W3Schools: Dynamic Table Creation</h2>
+  <input type="text" id="custName" placeholder="Customer Name" />
+  <input type="text" id="custCountry" placeholder="Country" />
+  <button onclick="addRow()">Add Row</button>
+
+  <table id="myTable">
+    <tr><th>Customer Name</th><th>Country</th><th>Action</th></tr>
+    <tr><td>Alfreds Futterkiste</td><td>Germany</td><td><button class="del-btn" onclick="delRow(this)">Delete</button></td></tr>
+    <tr><td>Berglunds snabbköp</td><td>Sweden</td><td><button class="del-btn" onclick="delRow(this)">Delete</button></td></tr>
+  </table>
+
+  <script>
+    function addRow() {
+      const name = document.getElementById("custName").value.trim();
+      const country = document.getElementById("custCountry").value.trim();
+      if (!name || !country) return;
+
+      const table = document.getElementById("myTable");
+      const row = table.insertRow();
+      row.insertCell(0).innerHTML = name;
+      row.insertCell(1).innerHTML = country;
+      row.insertCell(2).innerHTML = '<button class="del-btn" onclick="delRow(this)">Delete</button>';
+
+      document.getElementById("custName").value = "";
+      document.getElementById("custCountry").value = "";
+    }
+    function delRow(btn) {
+      btn.closest("tr").remove();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>W3Schools Example: Lightbulb</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 40px; background: #0f172a; color: #fff; }
+    .bulb { width: 100px; height: 100px; margin: 20px auto; transition: 0.3s; }
+    .bulb.on { fill: #facc15; filter: drop-shadow(0 0 20px #facc15); }
+    .bulb.off { fill: #475569; }
+    button { padding: 10px 20px; font-size: 16px; margin: 5px; cursor: pointer; border-radius: 6px; border: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>W3Schools: Lightbulb ON / OFF</h1>
+  <p>JavaScript changing image attributes & state:</p>
+
+  <svg id="bulb" class="bulb off" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm-2 17h4v1h-4v-1zm1 2h2v1h-2v-1z"/>
+  </svg>
+  <br />
+  <button onclick="document.getElementById('bulb').className = 'bulb on'" style="background:#facc15;">Turn ON</button>
+  <button onclick="document.getElementById('bulb').className = 'bulb off'" style="background:#ef4444; color:#fff;">Turn OFF</button>
+</body>
+</html>

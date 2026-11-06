@@ -1,6 +1,17 @@
 # JavaScript Complete Learning Roadmap 🚀
 
-This repository contains the complete, step-by-step JavaScript curriculum from absolute beginner to confident developer level, structured strictly according to the **JavaScript Learning Master Prompt** and aligned 100% with all **W3Schools Core, Web API, and Advanced JavaScript Modules**.
+This repository contains the complete, step-by-step JavaScript curriculum from absolute beginner to confident developer level, structured strictly according to the **JavaScript Learning Master Prompt** and aligned 100% with all **W3Schools Core Tutorials, Web APIs, Advanced Modules, and Practical Examples**.
+
+---
+
+## 💡 Dedicated W3Schools "Try-It-Yourself" Examples Folder:
+📂 [w3schools-examples/](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/README.md)
+- 🌟 **[Master Interactive Hub (All-in-One Showcase)](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/index.html)**
+- 💡 [01: The Famous Lightbulb ON / OFF](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/01-lightbulb.html)
+- 🛡️ [02: Input Range (1-10) Validation](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/02-form-validation.html)
+- ⏱️ [03: Live Digital Clock (`setInterval`)](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/03-digital-clock.html)
+- 📂 [04: Collapsible Accordion & Modals](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/04-accordion-and-modals.html)
+- 📊 [05: Dynamic HTML Table Insertion & Deletion](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/05-dynamic-table.html)
 
 ---
 
