@@ -62,3 +62,4 @@ console.log("\n=== 5. Comma Operator ===");
 let counter = 0;
 const lastValue = (counter += 10, counter *= 2, `Final value is ${counter}`);
 console.log("Comma expression returned:", lastValue);
+

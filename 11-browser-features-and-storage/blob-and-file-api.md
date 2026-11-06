@@ -82,3 +82,4 @@ fileInput.addEventListener("change", (e) => {
 ### Other `FileReader` Methods:
 - `reader.readAsDataURL(file)`: Converts images to Base64 data URI (`data:image/png;base64,...`) for instant preview in `<img>` tags.
 - `reader.readAsArrayBuffer(file)`: Reads raw binary buffer for cryptographic hashing or WebGL textures.
+

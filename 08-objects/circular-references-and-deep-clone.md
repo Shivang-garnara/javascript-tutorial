@@ -100,3 +100,4 @@ console.log(safeStringify(parent));
 | Nested objects / arrays | Copied **by reference** (shared memory!) | Copied **recursively** (new memory!) |
 | Circular references | Works (maintains pointer) | Works (creates new cyclical graph) |
 | Performance | Instant ($\mathcal{O}(1)$) | Proportional to object depth ($\mathcal{O}(N)$) |
+

@@ -101,3 +101,4 @@ const currentValue = Atomics.load(sharedArray, 0);
 ```
 
 > ⚠️ **Security Notice:** Following the Meltdown/Spectre CPU vulnerability disclosure, browsers require **Cross-Origin Isolation** HTTP headers (`Cross-Origin-Opener-Policy: same-origin` and `Cross-Origin-Embedder-Policy: require-corp`) to enable `SharedArrayBuffer`.
+

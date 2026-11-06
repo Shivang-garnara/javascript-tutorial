@@ -120,3 +120,4 @@ const compose = (...fns) => (initialValue) =>
 - React hooks (`useCallback`, `useMemo`) rely on pure function concepts.
 - Middleware in Redux and Express are built entirely using currying and function composition.
 - Clean code architecture: Small, pure, testable functions chained together into pipelines.
+

@@ -31,3 +31,4 @@ console.log("B: Synchronous Log 2");
 // 6. E: Macrotask (setTimeout 0ms)
 
 console.log("\n(Execution order registered in event loop; output will resolve above)");
+

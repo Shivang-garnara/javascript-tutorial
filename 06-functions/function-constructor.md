@@ -67,3 +67,4 @@ console.log(render({ username: "Shivang", credits: 250 }));
 
 ## 4. Security Warning: Never Pass Untrusted User Input
 Never pass user-submitted strings from web forms, query parameters, or chat inputs to `new Function()` or `eval()`, as attackers can inject malicious code to steal session cookies and access user accounts.
+

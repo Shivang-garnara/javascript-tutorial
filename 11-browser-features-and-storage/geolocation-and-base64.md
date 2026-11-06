@@ -98,3 +98,4 @@ function fromBase64Unicode(base64) {
 const safeEncoded = toBase64Unicode("Shivang ₹5,000 🚀");
 console.log("Decoded cleanly:", fromBase64Unicode(safeEncoded));
 ```
+

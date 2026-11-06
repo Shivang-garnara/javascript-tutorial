@@ -102,3 +102,4 @@ console.log("\n=== 3. Reversing the Linked List (In-Place) ===");
 list.reverse();
 console.log("Reversed List:");
 list.print(); // 30 -> 10 -> 5 -> null
+

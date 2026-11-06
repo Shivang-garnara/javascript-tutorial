@@ -52,3 +52,4 @@ if (typeof structuredClone === "function") {
 } else {
   console.log("structuredClone is not supported in this runtime environment.");
 }
+

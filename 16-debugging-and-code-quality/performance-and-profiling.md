@@ -67,3 +67,4 @@ elements.forEach((el, i) => {
 1. **Uncleared Timers:** Always store `timerId = setInterval(...)` and run `clearInterval(timerId)` when navigating away.
 2. **Orphaned Event Listeners:** If you remove a DOM element, remove its custom event listeners or use event delegation on the parent.
 3. **Forgotten Global Variables:** Accidental globals (`foo = "data"`) stay pinned in memory forever. Always use `'use strict';`.
+

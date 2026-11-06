@@ -79,3 +79,4 @@ test("Capitalizes first character", () => {
   expect(capitalize("shivang")).toBe("Shivang");
 });
 ```
+

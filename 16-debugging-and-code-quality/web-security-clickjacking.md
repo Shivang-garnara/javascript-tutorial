@@ -62,3 +62,4 @@ The `sandbox` attribute prevents the framed page from navigating top-level windo
 - [x] Configure `Content-Security-Policy: frame-ancestors 'none'` on all authenticated endpoints.
 - [x] Set `SameSite=Lax` or `SameSite=Strict` on session cookies to prevent CSRF in framed requests.
 - [x] Require user re-authentication or password confirmation before high-risk actions (e.g., changing passwords or transferring funds).
+

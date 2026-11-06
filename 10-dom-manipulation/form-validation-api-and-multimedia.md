@@ -75,3 +75,4 @@ video.addEventListener("timeupdate", () => {
 });
 video.addEventListener("ended", () => console.log("Video finished playback."));
 ```
+

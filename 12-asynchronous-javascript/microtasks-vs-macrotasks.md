@@ -110,3 +110,4 @@ function sendTelemetry(data) {
 |---|:---:|---|---|
 | **Microtask Queue** | 🥇 **Highest** | Promises, `queueMicrotask`, `MutationObserver` | Executes **all** queued items until empty |
 | **Macrotask Queue** | 🥈 **Lower** | `setTimeout`, `setInterval`, DOM events, I/O | Executes **one task per loop cycle** |
+

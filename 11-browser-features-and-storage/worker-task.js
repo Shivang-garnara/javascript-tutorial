@@ -27,3 +27,4 @@ self.onmessage = function (e) {
     timeTakenMs: durationMs
   });
 };
+

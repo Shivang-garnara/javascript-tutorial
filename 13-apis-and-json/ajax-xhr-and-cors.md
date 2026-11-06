@@ -103,3 +103,4 @@ Access-Control-Allow-Credentials: true
 ```
 
 > ⚠️ **Common Junior Developer Mistake:** You cannot "fix" a CORS error from client-side JavaScript. CORS is enforced by the **browser**, and permissions must be configured on the **backend server**!
+

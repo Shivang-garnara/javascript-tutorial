@@ -138,3 +138,4 @@ function deepFreeze(obj) {
 deepFreeze(settings);
 // Now settings.ui is also 100% frozen!
 ```
+

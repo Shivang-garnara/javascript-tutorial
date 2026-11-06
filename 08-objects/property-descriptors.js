@@ -107,3 +107,4 @@ try {
 } catch (err) {
   console.log("Deep freeze successfully protected nested property:", err.message);
 }
+

@@ -69,3 +69,4 @@ try {
   console.log(`Caught Stack Overflow safely after ${callCount.toLocaleString()} frames:`);
   console.log(`${err.name}: ${err.message}`);
 }
+

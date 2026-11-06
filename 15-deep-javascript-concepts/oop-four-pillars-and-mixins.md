@@ -187,3 +187,4 @@ const bot = new Robot("Atlas");
 bot.log("System diagnostic completed."); // Inherited from canLog mixin!
 console.log(bot.toJSONString());          // Inherited from canSerialize mixin!
 ```
+

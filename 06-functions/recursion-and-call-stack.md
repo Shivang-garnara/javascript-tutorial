@@ -120,3 +120,4 @@ function getAllElementTags(element, tags = []) {
 In V8 (Chrome/Node.js), the Call Stack can hold approximately **10,000 frames** before throwing a `RangeError`.
 - For simple repetitive loops (e.g. counting to 1,000,000), use an iterative `while` or `for` loop, not recursion.
 - Use recursion primarily when processing **tree structures**, **nested JSON**, or algorithms like **Binary Search**, **MergeSort**, and **Tree Traversal**.
+

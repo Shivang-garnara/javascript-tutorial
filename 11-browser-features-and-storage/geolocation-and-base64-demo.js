@@ -40,3 +40,4 @@ if (typeof navigator !== "undefined" && navigator.geolocation) {
   console.log("Geolocation API requires a secure HTTPS browser context with user permission.");
   console.log("Check '11-browser-features-and-storage/geolocation-and-base64.md' for full syntax!");
 }
+

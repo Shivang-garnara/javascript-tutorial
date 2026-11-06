@@ -113,3 +113,4 @@ Object.assign(Invoice.prototype, IdentifiableMixin, AuditableMixin);
 const inv = new Invoice(14999);
 console.log("Generated UUID from Mixin:", inv.getUUID());
 inv.trackChange("PAYMENT_RECEIVED");
+

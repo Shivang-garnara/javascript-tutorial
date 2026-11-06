@@ -57,3 +57,4 @@ const processOrder = pipe(
 
 const initialOrder = { orderId: "ORD-5541", total: 1500 };
 console.log(processOrder(initialOrder));
+
