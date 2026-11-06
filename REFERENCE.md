@@ -105,3 +105,39 @@ Quick lookup guide of standard built-in JavaScript methods, functions, and prope
 | `encodeURI(uri)` | Encodes URI characters | `encodeURI("https://a.com?q=a b")` |
 | `decodeURI(uri)` | Decodes encoded URI | `decodeURI("a%20b")` &rarr; `"a b"` |
 
+---
+
+## ⚡ 6. Promise Combinators & Async Methods
+
+| Method | Resolves When | Rejects When | Return Value |
+| :--- | :--- | :--- | :--- |
+| `Promise.all(iterable)` | ALL promises fulfill | ANY promise rejects | Array of resolved values |
+| `Promise.allSettled(iterable)` | ALL promises finish (settle) | Never rejects | Array of `{ status, value/reason }` |
+| `Promise.race(iterable)` | First promise settles | First promise rejects | Value/reason of first settled |
+| `Promise.any(iterable)` | First promise fulfills | ALL promises reject | First resolved value (or AggregateError) |
+| `Promise.resolve(val)` | Returns fulfilled promise | N/A | Promise fulfilled with `val` |
+| `Promise.reject(err)` | N/A | Returns rejected promise | Promise rejected with `err` |
+
+---
+
+## 🔐 7. Collections & Symbols Reference
+
+| Structure / Primitive | Key Characteristics | Iteration & Size | Typical Use Case |
+| :--- | :--- | :--- | :--- |
+| `Map` | Key-value pairs of any type | Enumerable, `.size` | High-performance dynamic lookup table |
+| `Set` | Unique values of any type | Enumerable, `.size` | Deduplication of arrays, membership tests |
+| `WeakMap` | Keys MUST be objects; weakly held | Not enumerable, NO `.size` | Garbage-collected DOM metadata, private state |
+| `WeakSet` | Values MUST be objects; weakly held | Not enumerable, NO `.size` | Tagging processed objects/DOM nodes |
+| `Symbol(desc)` | Unique and immutable primitive | Hidden from standard loops | Non-colliding keys, well-known metaprogramming hooks |
+
+---
+
+## 🎯 8. Function Binding Methods
+
+| Method | Execution | Parameters Format | Returns |
+| :--- | :--- | :--- | :--- |
+| `fn.call(thisArg, ...args)` | **Immediate** | Comma-separated list | Result of `fn` |
+| `fn.apply(thisArg, [args])` | **Immediate** | Array of arguments | Result of `fn` |
+| `fn.bind(thisArg, ...args)` | **Deferred** | Comma-separated list | New function with permanently bound `this` |
+
+

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Storage Interactive Comparator | JavaScript Tutorial</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0b0f19;
+      color: #e2e8f0;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .wrapper {
+      max-width: 1000px;
+      width: 100%;
+    }
+    header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 1rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #38bdf8;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: #131d31;
+      border: 1px solid #243452;
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #67e8f9;
+      display: flex;
+      justify-content: space-between;
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      background: #1e293b;
+      color: #94a3b8;
+    }
+    .desc {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    input {
+      background: #090d16;
+      border: 1px solid #334155;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      color: white;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    input:focus { border-color: #38bdf8; }
+    .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      flex: 1;
+      padding: 0.5rem 0.75rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .btn-set { background: #0284c7; color: white; }
+    .btn-set:hover { background: #0369a1; }
+    .btn-clear { background: #ef4444; color: white; }
+    .btn-clear:hover { background: #dc2626; }
+    .stored-items {
+      background: #080d1a;
+      border: 1px solid #1e293b;
+      border-radius: 6px;
+      padding: 0.75rem;
+      flex: 1;
+      min-height: 120px;
+      max-height: 160px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    .item-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .key { color: #facc15; }
+    .val { color: #38bdf8; }
+    .empty-note { color: #64748b; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>🗄️ Browser Storage Comparator</h1>
+      <p class="subtitle">Inspect and experiment with LocalStorage, SessionStorage, and Cookies side-by-side.</p>
+    </header>
+
+    <div class="grid">
+      <!-- LocalStorage Card -->
+      <div class="card">
+        <h2>LocalStorage <span class="badge">Persistent (5-10MB)</span></h2>
+        <p class="desc">Survives tab close and browser restarts. Shared across all tabs with the same origin.</p>
+        <div class="input-group">
+          <input type="text" id="localKey" placeholder="Key (e.g. appTheme)">
+          <input type="text" id="localVal" placeholder="Value (e.g. emerald)">
+        </div>
+        <div class="btn-row">
+          <button class="btn-set" onclick="saveLocal()">Save Item</button>
+          <button class="btn-clear" onclick="clearLocal()">Clear All</button>
+        </div>
+        <div class="stored-items" id="localDisplay"></div>
+      </div>
+
+      <!-- SessionStorage Card -->
+      <div class="card">
+        <h2>SessionStorage <span class="badge">Tab Lifespan (5MB)</span></h2>
+        <p class="desc">Only exists for this specific browser tab. Opening a new tab creates fresh storage!</p>
+        <div class="input-group">
+          <input type="text" id="sessionKey" placeholder="Key (e.g. wizardStep)">
+          <input type="text" id="sessionVal" placeholder="Value (e.g. Step 3)">
+        </div>
+        <div class="btn-row">
+          <button class="btn-set" onclick="saveSession()">Save Item</button>
+          <button class="btn-clear" onclick="clearSession()">Clear All</button>
+        </div>
+        <div class="stored-items" id="sessionDisplay"></div>
+      </div>
+
+      <!-- Cookies Card -->
+      <div class="card">
+        <h2>Cookies <span class="badge">Sent with HTTP (~4KB)</span></h2>
+        <p class="desc">Sent to web servers on each request. Can have custom expiration times.</p>
+        <div class="input-group">
+          <input type="text" id="cookieKey" placeholder="Cookie Name (e.g. sessionId)">
+          <input type="text" id="cookieVal" placeholder="Cookie Value (e.g. tok_991)">
+        </div>
+        <div class="btn-row">
+          <button class="btn-set" onclick="saveCookie()">Set Cookie</button>
+          <button class="btn-clear" onclick="clearCookies()">Expire All</button>
+        </div>
+        <div class="stored-items" id="cookieDisplay"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function renderLocal() {
+      const display = document.getElementById("localDisplay");
+      display.innerHTML = "";
+      if (localStorage.length === 0) {
+        display.innerHTML = '<span class="empty-note">(LocalStorage is empty)</span>';
+        return;
+      }
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const val = localStorage.getItem(key);
+        display.innerHTML += `<div class="item-line"><span class="key">${escapeHTML(key)}</span><span class="val">${escapeHTML(val)}</span></div>`;
+      }
+    }
+
+    function saveLocal() {
+      const k = document.getElementById("localKey").value.trim();
+      const v = document.getElementById("localVal").value.trim();
+      if (!k) return;
+      localStorage.setItem(k, v);
+      renderLocal();
+      document.getElementById("localKey").value = "";
+      document.getElementById("localVal").value = "";
+    }
+
+    function clearLocal() {
+      localStorage.clear();
+      renderLocal();
+    }
+
+    function renderSession() {
+      const display = document.getElementById("sessionDisplay");
+      display.innerHTML = "";
+      if (sessionStorage.length === 0) {
+        display.innerHTML = '<span class="empty-note">(SessionStorage is empty)</span>';
+        return;
+      }
+      for (let i = 0; i < sessionStorage.length; i++) {
+        const key = sessionStorage.key(i);
+        const val = sessionStorage.getItem(key);
+        display.innerHTML += `<div class="item-line"><span class="key">${escapeHTML(key)}</span><span class="val">${escapeHTML(val)}</span></div>`;
+      }
+    }
+
+    function saveSession() {
+      const k = document.getElementById("sessionKey").value.trim();
+      const v = document.getElementById("sessionVal").value.trim();
+      if (!k) return;
+      sessionStorage.setItem(k, v);
+      renderSession();
+      document.getElementById("sessionKey").value = "";
+      document.getElementById("sessionVal").value = "";
+    }
+
+    function clearSession() {
+      sessionStorage.clear();
+      renderSession();
+    }
+
+    function renderCookies() {
+      const display = document.getElementById("cookieDisplay");
+      display.innerHTML = "";
+      const raw = document.cookie;
+      if (!raw) {
+        display.innerHTML = '<span class="empty-note">(No client cookies found)</span>';
+        return;
+      }
+      const parts = raw.split(";").map(p => p.trim());
+      parts.forEach(p => {
+        const [k, v] = p.split("=");
+        display.innerHTML += `<div class="item-line"><span class="key">${escapeHTML(k)}</span><span class="val">${escapeHTML(v || "")}</span></div>`;
+      });
+    }
+
+    function saveCookie() {
+      const k = document.getElementById("cookieKey").value.trim();
+      const v = document.getElementById("cookieVal").value.trim();
+      if (!k) return;
+      document.cookie = `${encodeURIComponent(k)}=${encodeURIComponent(v)}; max-age=3600; path=/; SameSite=Lax`;
+      renderCookies();
+      document.getElementById("cookieKey").value = "";
+      document.getElementById("cookieVal").value = "";
+    }
+
+    function clearCookies() {
+      const raw = document.cookie;
+      if (!raw) return;
+      raw.split(";").forEach(p => {
+        const k = p.split("=")[0].trim();
+        document.cookie = `${k}=; max-age=0; path=/`;
+      });
+      renderCookies();
+    }
+
+    function escapeHTML(str) {
+      const d = document.createElement("div");
+      d.textContent = str;
+      return d.innerHTML;
+    }
+
+    // Initial render
+    renderLocal();
+    renderSession();
+    renderCookies();
+  </script>
+</body>
+</html>
