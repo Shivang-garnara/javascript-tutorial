@@ -108,3 +108,4 @@ Currying transforms a function taking multiple arguments `f(a, b, c)` into a seq
 const multiply = (a) => (b) => (c) => a * b * c;
 console.log(multiply(2)(3)(4)); // 24
 ```
+
