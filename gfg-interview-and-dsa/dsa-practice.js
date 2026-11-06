@@ -79,3 +79,4 @@ function isObjectEmpty(obj) {
 
 console.log("Is {} empty?", isObjectEmpty({})); // true
 console.log("Is { a: 1 } empty?", isObjectEmpty({ a: 1 })); // false
+

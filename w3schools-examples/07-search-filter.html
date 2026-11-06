@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W3Schools Example: Live Search Filter List</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: sans-serif;
+      max-width: 550px;
+      margin: 40px auto;
+      background: #0f172a;
+      color: #fff;
+      padding: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: #1e293b;
+      color: #fff;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    li {
+      padding: 12px 16px;
+      border-bottom: 1px solid #334155;
+      background: #1e293b;
+      display: flex;
+      justify-content: space-between;
+      transition: background 0.2s;
+    }
+    li:last-child { border-bottom: none; }
+    li:hover { background: #334155; }
+    .badge {
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>W3Schools: JavaScript Search / Filter</h2>
+  <p style="color:#94a3b8; font-size:14px;">Real-time search filtering on <code>keyup</code>:</p>
+
+  <input type="text" id="myInput" onkeyup="filterItems()" placeholder="Search programming topics..." />
+
+  <ul id="myUL">
+    <li><span>JavaScript Variables & Data Types</span> <span class="badge">Basics</span></li>
+    <li><span>Arrays & Array Methods</span> <span class="badge">Data</span></li>
+    <li><span>Functions & Arrow Functions</span> <span class="badge">Core</span></li>
+    <li><span>Document Object Model (DOM)</span> <span class="badge">Web</span></li>
+    <li><span>HTML Events & Event Listeners</span> <span class="badge">Interactive</span></li>
+    <li><span>Asynchronous Promises & Async/Await</span> <span class="badge">Async</span></li>
+    <li><span>Fetch API & JSON Requests</span> <span class="badge">Network</span></li>
+    <li><span>Classes, OOP & Inheritance</span> <span class="badge">Advanced</span></li>
+  </ul>
+
+  <script>
+    function filterItems() {
+      const input = document.getElementById("myInput");
+      const filter = input.value.toUpperCase();
+      const ul = document.getElementById("myUL");
+      const li = ul.getElementsByTagName("li");
+
+      for (let i = 0; i < li.length; i++) {
+        const textValue = li[i].textContent || li[i].innerText;
+        if (textValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>

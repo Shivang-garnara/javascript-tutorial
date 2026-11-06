@@ -79,3 +79,4 @@ function createUser({ name, email, age = 18, role = "User" }) {
 const u1 = createUser({ name: "Shivang", email: "s@test.com" });
 const u2 = createUser({ name: "Aarav", email: "a@test.com", role: "Admin" });
 ```
+

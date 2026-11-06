@@ -110,3 +110,4 @@ class Car extends Vehicle {
 
 ### Pattern B: Using Symbols or WeakMaps
 For stronger privacy that allows child classes to access shared symbols while hiding them from external object inspection.
+

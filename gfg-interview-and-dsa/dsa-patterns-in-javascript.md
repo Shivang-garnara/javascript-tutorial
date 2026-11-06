@@ -123,3 +123,4 @@ function isValidParentheses(s) {
 console.log("Parentheses '({[]})' valid?", isValidParentheses("({[]})")); // true
 console.log("Parentheses '([)]' valid?", isValidParentheses("([)]"));     // false
 ```
+

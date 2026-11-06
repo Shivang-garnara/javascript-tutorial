@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W3Schools Example: Image Slideshow / Carousel</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: sans-serif;
+      background: #0b1120;
+      color: #f8fafc;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .slideshow-container {
+      max-width: 600px;
+      position: relative;
+      margin: auto;
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .mySlides {
+      display: none;
+      padding: 60px 40px;
+      text-align: center;
+      min-height: 220px;
+    }
+    .slide-number {
+      position: absolute;
+      top: 12px;
+      left: 15px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .slide-caption {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #38bdf8;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(0,0,0,0.4);
+    }
+    .next { right: 0; border-radius: 3px 0 0 3px; }
+    .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+    .dots-container { text-align: center; margin-top: 15px; }
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #475569;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .active, .dot:hover { background-color: #38bdf8; }
+    .fade {
+      animation-name: fade;
+      animation-duration: 0.6s;
+    }
+    @keyframes fade {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>W3Schools: JavaScript Slideshow / Carousel</h2>
+  <p style="color:#94a3b8;">Demonstrating slide indexes, intervals, and display toggles:</p>
+
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="mySlides fade" style="display: block; background: #0f172a;">
+      <div class="slide-number">1 / 3</div>
+      <div style="font-size: 50px;">🚀</div>
+      <div class="slide-caption">Level 1: JavaScript Foundations</div>
+      <p style="color:#cbd5e1; font-size:14px;">Learn syntax, expressions, and strict mode.</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="mySlides fade" style="background: #1e1b4b;">
+      <div class="slide-number">2 / 3</div>
+      <div style="font-size: 50px;">⚡</div>
+      <div class="slide-caption">Level 10: HTML DOM & Events</div>
+      <p style="color:#cbd5e1; font-size:14px;">Master interactive web buttons, styles, and listeners.</p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="mySlides fade" style="background: #064e3b;">
+      <div class="slide-number">3 / 3</div>
+      <div style="font-size: 50px;">🌐</div>
+      <div class="slide-caption">Level 13: APIs & Async/Await</div>
+      <p style="color:#cbd5e1; font-size:14px;">Connect your frontend to servers and live JSON APIs.</p>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+
+  <div class="dots-container">
+    <span class="dot active" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    // Auto-advance slides every 4 seconds
+    setInterval(() => {
+      plusSlides(1);
+    }, 4000);
+  </script>
+</body>
+</html>

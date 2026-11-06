@@ -19,3 +19,4 @@ This module aligns your JavaScript foundations directly with **GeeksforGeeks Tec
 - ⚠️ **[TypeError: Invalid Array.prototype.sort argument](file:///C:/Users/Shivang/Downloads/javascript%20basic/07-arrays/sort-pitfalls-and-typeerror.md):** Why numeric sort fails without compare functions and how to write valid compare logic.
 - 📢 **[Custom Events (Pub/Sub Pattern)](file:///C:/Users/Shivang/Downloads/javascript%20basic/10-dom-manipulation/custom-events-guide.md):** Creating decoupled event architectures with `CustomEvent` and `dispatchEvent`.
 - 🔒 **[Access Modifiers (Public, Private, Protected)](file:///C:/Users/Shivang/Downloads/javascript%20basic/15-deep-javascript-concepts/access-modifiers-guide.md):** Native `#privateField` vs public vs protected simulations in JavaScript.
+

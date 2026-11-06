@@ -47,3 +47,4 @@ When building scalable web applications:
 - **Rate Limiting:** Protect APIs from denial-of-service using token bucket algorithms.
 - **Caching (Redis / Browser Cache):** Cache frequent read requests to reduce database load.
 - **Debouncing & Throttling:** Throttle window scroll/resize events; debounce search auto-suggest input fields to avoid sending unnecessary network requests on every keystroke.
+

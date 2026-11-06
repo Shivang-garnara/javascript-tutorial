@@ -4,26 +4,32 @@ This repository contains the complete, step-by-step JavaScript curriculum from a
 
 ---
 
-## 🎓 GeeksforGeeks (GFG) Interview & DSA Hub:
-📂 [gfg-interview-and-dsa/](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/README.md)
-- 🧩 [DSA Problem-Solving Patterns in JavaScript (Two Pointers, Sliding Window, Frequency Counter)](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/dsa-patterns-in-javascript.md)
-- 💻 [Top Coding Interview Problems Solved (Two Sum, Deep Flatten, Debounce & Throttle)](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/dsa-practice.js)
-- 🌐 [MERN Full-Stack, System Design & Placement 360 Guide](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/mern-and-placement-guide.md)
-- 🔁 [Function Overloading Simulation Patterns](file:///C:/Users/Shivang/Downloads/javascript%20basic/06-functions/function-overloading.md)
-- ⚠️ [TypeError: Invalid Array.prototype.sort argument](file:///C:/Users/Shivang/Downloads/javascript%20basic/07-arrays/sort-pitfalls-and-typeerror.md)
-- 📢 [JavaScript Custom Events (Pub/Sub Event Architecture)](file:///C:/Users/Shivang/Downloads/javascript%20basic/10-dom-manipulation/custom-events-guide.md)
-- 🔒 [Access Modifiers (Public, Private, Protected Simulation)](file:///C:/Users/Shivang/Downloads/javascript%20basic/15-deep-javascript-concepts/access-modifiers-guide.md)
-
----
-
 ## 💡 Dedicated W3Schools "Try-It-Yourself" Examples Folder:
 📂 [w3schools-examples/](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/README.md)
 - 🌟 **[Master Interactive Hub (All-in-One Showcase)](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/index.html)**
 - 💡 [01: The Famous Lightbulb ON / OFF](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/01-lightbulb.html)
 - 🛡️ [02: Input Range (1-10) Validation](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/02-form-validation.html)
 - ⏱️ [03: Live Digital Clock (`setInterval`)](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/03-digital-clock.html)
-- 📂 [04: Collapsible Accordion & Modals](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/04-accordion-and-modals.html)
-- 📊 [05: Dynamic HTML Table Insertion & Deletion](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/05-dynamic-table.html)
+- 📂 [04: Collapsible Accordion & Drawers](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/04-accordion-and-modals.html)
+- 📊 [05: Dynamic HTML Table Builder](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/05-dynamic-table.html)
+- 🖼️ [06: Interactive Image Carousel / Slideshow](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/06-image-slideshow.html)
+- 🔍 [07: Real-Time Live Search & Filter List](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/07-search-filter.html)
+- 🪟 [08: Interactive Modal Dialog Box with Backdrop](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/08-modal-popup.html)
+- 🍪 [09: JavaScript Cookie Manager (`setCookie`, `getCookie`)](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/09-cookie-manager.html)
+
+---
+
+## 🎓 GeeksforGeeks (GFG) Interview & DSA Hub:
+📂 [gfg-interview-and-dsa/](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/README.md)
+- 🎯 [Interactive Event Bubbling & Propagation Playground](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/event-bubbling-and-capturing.html)
+- ❓ [Top 15 Placement Interview Code-Output Questions Explained](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/top-interview-coding-questions.md)
+- 🧩 [DSA Problem-Solving Patterns in JavaScript (Two Pointers, Sliding Window, Hash Maps)](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/dsa-patterns-in-javascript.md)
+- 💻 [Top Interview Coding Challenges Solved (Two Sum, Deep Flatten, Debounce/Throttle)](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/dsa-practice.js)
+- 🌐 [MERN Full-Stack, System Design & Placement 360 Guide](file:///C:/Users/Shivang/Downloads/javascript%20basic/gfg-interview-and-dsa/mern-and-placement-guide.md)
+- 🔁 [Function Overloading Simulation Patterns](file:///C:/Users/Shivang/Downloads/javascript%20basic/06-functions/function-overloading.md)
+- ⚠️ [TypeError: Invalid Array.prototype.sort argument](file:///C:/Users/Shivang/Downloads/javascript%20basic/07-arrays/sort-pitfalls-and-typeerror.md)
+- 📢 [JavaScript Custom Events (Pub/Sub Event Architecture)](file:///C:/Users/Shivang/Downloads/javascript%20basic/10-dom-manipulation/custom-events-guide.md)
+- 🔒 [Access Modifiers (Public, Private, Protected Simulation)](file:///C:/Users/Shivang/Downloads/javascript%20basic/15-deep-javascript-concepts/access-modifiers-guide.md)
 
 ---
 

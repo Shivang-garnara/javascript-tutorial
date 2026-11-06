@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W3Schools Example: JavaScript Cookie Manager</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 520px;
+      margin: 40px auto;
+      background: #0f172a;
+      color: #fff;
+      padding: 24px;
+      border: 1px solid #334155;
+      border-radius: 12px;
+    }
+    input { width: 100%; padding: 10px; margin: 8px 0 14px; border-radius: 6px; border: 1px solid #475569; background: #1e293b; color: #fff; box-sizing: border-box; }
+    button { padding: 9px 16px; background: #38bdf8; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; color: #0f172a; margin-right: 6px; }
+    button.del { background: #ef4444; color: #fff; }
+    .box { background: #020617; padding: 12px; border-radius: 6px; margin-top: 14px; font-family: monospace; color: #a7f3d0; }
+  </style>
+</head>
+<body>
+  <h2 style="color:#facc15; margin-top:0;">🍪 W3Schools: Cookie Manager</h2>
+  <p style="font-size:14px; color:#cbd5e1;">Testing <code>setCookie()</code>, <code>getCookie()</code>, and expiration dates:</p>
+
+  <label>User Name:</label>
+  <input type="text" id="cookieUserName" placeholder="Enter your name to remember..." />
+
+  <button onclick="saveUserCookie()">Set Cookie (30 Days)</button>
+  <button onclick="readUserCookie()">Get Cookie</button>
+  <button onclick="deleteUserCookie()" class="del">Delete Cookie</button>
+
+  <div id="cookieFeedback" class="box">Cookie output will appear here.</div>
+
+  <script>
+    // 1. W3Schools standard setCookie function
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      const expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";path=/;SameSite=Lax";
+    }
+
+    // 2. W3Schools standard getCookie function
+    function getCookie(cname) {
+      const name = cname + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const ca = decodedCookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function saveUserCookie() {
+      const name = document.getElementById("cookieUserName").value.trim();
+      if (!name) return;
+      setCookie("username", name, 30);
+      document.getElementById("cookieFeedback").textContent = `Cookie saved: username=${name} (Expires in 30 days)`;
+    }
+
+    function readUserCookie() {
+      const user = getCookie("username");
+      if (user !== "") {
+        document.getElementById("cookieFeedback").textContent = `Welcome back, ${user}! (Read from document.cookie)`;
+      } else {
+        document.getElementById("cookieFeedback").textContent = "No 'username' cookie found!";
+      }
+    }
+
+    function deleteUserCookie() {
+      // Deleting a cookie is done by setting its expiration to a past date
+      setCookie("username", "", -1);
+      document.getElementById("cookieFeedback").textContent = "Cookie 'username' deleted!";
+    }
+
+    // Check automatically on load
+    readUserCookie();
+  </script>
+</body>
+</html>

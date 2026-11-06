@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GFG Interview: Event Bubbling vs Capturing</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #0b1120;
+      color: #fff;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #1e293b;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+    h2 { color: #38bdf8; margin-top: 0; }
+    .box-outer {
+      background: #0284c7;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .box-middle {
+      background: #0d9488;
+      padding: 25px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .box-inner {
+      background: #eab308;
+      color: #0f172a;
+      padding: 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .log-box {
+      margin-top: 20px;
+      background: #020617;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: monospace;
+      min-height: 100px;
+      color: #34d399;
+      font-size: 13px;
+    }
+    button {
+      padding: 8px 14px;
+      background: #475569;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover { background: #64748b; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🎯 GeeksforGeeks: Event Bubbling & Propagation</h2>
+    <p style="font-size:14px; color:#cbd5e1;">
+      Click on any nested box below to witness event propagation order (Bubbling from Inside &rarr; Outside):
+    </p>
+
+    <div id="outerBox" class="box-outer">
+      Outer Div (#outerBox)
+      <div id="middleBox" class="box-middle">
+        Middle Div (#middleBox)
+        <div id="innerBox" class="box-inner">
+          Click Me! (#innerBox)
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <button onclick="clearLog()">Clear Event Log</button>
+      <label style="font-size:13px; color:#cbd5e1; cursor:pointer;">
+        <input type="checkbox" id="stopPropCheck" /> Stop Propagation (<code>e.stopPropagation()</code>)
+      </label>
+    </div>
+
+    <div id="eventLog" class="log-box">Click the yellow box to see the trigger sequence...</div>
+  </div>
+
+  <script>
+    const outer = document.getElementById("outerBox");
+    const middle = document.getElementById("middleBox");
+    const inner = document.getElementById("innerBox");
+    const log = document.getElementById("eventLog");
+    const stopCheck = document.getElementById("stopPropCheck");
+
+    let step = 1;
+
+    function logEvent(elementName, e) {
+      if (stopCheck.checked && elementName === "Inner Box") {
+        e.stopPropagation();
+        log.innerHTML += `<div>Step ${step++}: 🛑 Triggered: <strong>${elementName}</strong> (stopPropagation called! Stopped bubbling.)</div>`;
+        return;
+      }
+      log.innerHTML += `<div>Step ${step++}: ⚡ Bubble Event reached: <strong>${elementName}</strong></div>`;
+    }
+
+    // Default third parameter is false -> Event Bubbling (Bottom-up)
+    inner.addEventListener("click", (e) => logEvent("Inner Box", e), false);
+    middle.addEventListener("click", (e) => logEvent("Middle Box", e), false);
+    outer.addEventListener("click", (e) => logEvent("Outer Box", e), false);
+
+    function clearLog() {
+      log.innerHTML = "";
+      step = 1;
+    }
+  </script>
+</body>
+</html>

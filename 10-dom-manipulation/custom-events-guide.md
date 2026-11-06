@@ -61,3 +61,4 @@ Instead of the modal having to know about the header's DOM element directly:
    });
    ```
 This makes your code modular, maintainable, and easy to test!
+
