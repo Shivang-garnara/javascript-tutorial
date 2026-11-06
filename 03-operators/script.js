@@ -38,3 +38,4 @@ console.log("With ||:", finalVolumeOr, "| With ??:", finalVolumeNullish);
 // 6. Optional Chaining (?.)
 const user = { name: "Alice", address: null };
 console.log("User city:", user.address?.city ?? "No city registered");
+

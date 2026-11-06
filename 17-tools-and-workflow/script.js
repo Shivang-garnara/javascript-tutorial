@@ -55,3 +55,4 @@ const samplePackageJson = {
 };
 
 console.log("\nSample package.json manifest loaded:", samplePackageJson.name);
+

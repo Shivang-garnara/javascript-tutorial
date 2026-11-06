@@ -71,3 +71,4 @@
 
 ### D. Progress
 - 🎉 **All 19 Levels of the JavaScript Master Curriculum are fully created and structured in your local folder!**
+

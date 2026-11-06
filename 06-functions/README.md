@@ -144,3 +144,4 @@ Check `practice.js` in this folder:
 ### K. Progress
 - ✅ Level 6 Completed
 - 🔜 Next: Level 7 — Arrays
+

@@ -45,3 +45,4 @@ console.log("Price of Apple:", productPrices.get("Apple"));
 const usernameRegex = /^[a-zA-Z0-9_]{4,12}$/;
 console.log("Is 'shivang_01' valid?", usernameRegex.test("shivang_01")); // true
 console.log("Is 'sh' valid?", usernameRegex.test("sh"));                 // false (too short)
+

@@ -65,3 +65,4 @@ taskList.addEventListener("click", (e) => {
     li?.classList.toggle("completed");
   }
 });
+

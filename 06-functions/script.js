@@ -52,3 +52,4 @@ function makeBankVault(initialBalance) {
 const myVault = makeBankVault(500);
 console.log(myVault.deposit(150));
 console.log("Current balance check:", myVault.getBalance());
+

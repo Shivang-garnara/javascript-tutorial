@@ -44,3 +44,4 @@ const cart = ["T-Shirt", "Jeans", "Sneakers"];
 for (const item of cart) {
   console.log(`Cart item: ${item}`);
 }
+

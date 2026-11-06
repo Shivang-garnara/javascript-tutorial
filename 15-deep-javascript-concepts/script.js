@@ -67,3 +67,4 @@ const dispenser = ticketDispenser();
 console.log(dispenser.next().value); // Ticket #101
 console.log(dispenser.next().value); // Ticket #102
 console.log(dispenser.next().value); // Ticket #103
+

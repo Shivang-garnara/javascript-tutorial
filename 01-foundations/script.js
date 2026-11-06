@@ -25,3 +25,4 @@ console.log(validVariable);
 
 // 4. Outputting multiple values in one log:
 console.log("Current status:", "Active", "Code:", 200);
+

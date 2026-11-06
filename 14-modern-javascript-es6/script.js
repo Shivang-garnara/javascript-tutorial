@@ -48,3 +48,4 @@ const logTeam = (manager, ...members) => {
 };
 
 logTeam("Alice", "Bob", "Charlie", "David");
+

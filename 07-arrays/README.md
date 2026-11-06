@@ -134,3 +134,4 @@ Check `practice.js` in this folder:
 ### K. Progress
 - ✅ Level 7 Completed
 - 🔜 Next: Level 8 — Objects
+

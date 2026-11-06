@@ -57,3 +57,4 @@ try {
 } finally {
   console.log("Transaction session logged to audit log.");
 }
+

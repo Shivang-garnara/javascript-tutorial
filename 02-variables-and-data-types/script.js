@@ -39,3 +39,4 @@ console.log("Boolean of empty string:", Boolean(""));    // false
 console.log("Boolean of 'hello':", Boolean("hello"));    // true
 console.log("Boolean of 0:", Boolean(0));                // false
 console.log("Boolean of 42:", Boolean(42));              // true
+

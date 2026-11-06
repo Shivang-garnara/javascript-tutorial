@@ -42,3 +42,4 @@ const fullStack = [...frontEnd, ...backEnd];
 const [primaryTech, secondaryTech] = fullStack;
 console.log("Fullstack merged:", fullStack);
 console.log("Primary:", primaryTech, "| Secondary:", secondaryTech);
+

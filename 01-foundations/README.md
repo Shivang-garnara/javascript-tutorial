@@ -137,3 +137,4 @@ Check `practice.js` in this folder to solve:
 ### K. Progress
 - ✅ Level 1 Completed
 - 🔜 Next: Level 2 — Variables and Data Types
+

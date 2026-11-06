@@ -22,3 +22,4 @@ const learningPaths = {
 
 console.log("=== Your JavaScript Mastery Next Steps ===");
 console.table(learningPaths);
+
