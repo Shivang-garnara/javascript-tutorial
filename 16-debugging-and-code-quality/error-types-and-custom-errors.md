@@ -144,3 +144,4 @@ async function loadUserData(userId) {
 1. Never throw raw strings (`throw "Error"` ❌). Always throw real `Error` instances (`throw new Error(...)` ✅).
 2. Extend `Error` for business domain errors (`ValidationError`, `AuthError`, `PaymentError`).
 3. Use `instanceof` to branch catch blocks gracefully.
+

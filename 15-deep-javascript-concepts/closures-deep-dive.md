@@ -135,3 +135,4 @@ for (var i = 1; i <= 3; i++) {
 
 Because closures retain references to outer variables, those variables cannot be garbage collected as long as the closure exists.
 - If a closure references a giant DOM element or 50MB array that is no longer needed, null out references when done (`largeData = null`).
+

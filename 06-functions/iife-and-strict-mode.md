@@ -149,3 +149,4 @@ delete x; // ❌ SyntaxError: Delete of an unqualified identifier in strict mode
 - Use **Strict Mode (`"use strict"`)** in all traditional vanilla JS scripts to catch subtle mistakes early.
 - Modern bundlers (Vite, Webpack) and ES modules turn on strict mode by default.
 - Use **IIFEs** when you want self-executing initialization code with private variables without leaking into the global scope.
+

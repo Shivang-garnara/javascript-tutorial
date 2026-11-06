@@ -99,3 +99,4 @@ class Vehicle {}
 
 ## 6. Interview Golden Rule:
 Always declare variables at the top of their scope and use `const` (or `let` when reassignment is required) to make Temporal Dead Zone bugs impossible.
+

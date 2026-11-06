@@ -142,3 +142,4 @@ loggedUser &&= { token: "xyz", lastActive: Date.now() };
 - Use **`?.`** to guard deeply nested API responses from crashing your UI.
 - Chain **`?.` with `??`** for clean, bulletproof fallback patterns:
   `const theme = config?.user?.preferences?.theme ?? "dark";`
+

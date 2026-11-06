@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native Form Validation API Tester | JavaScript Curriculum</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    .card {
+      max-width: 650px;
+      width: 100%;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    h1 { color: #38bdf8; font-size: 1.6rem; margin-bottom: 0.5rem; }
+    p.sub { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: #cbd5e1;
+    }
+    input {
+      width: 100%;
+      background: #090d16;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: white;
+      padding: 0.75rem;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    input:focus { border-color: #38bdf8; }
+    input:invalid:not(:placeholder-shown) { border-color: #ef4444; }
+    input:valid:not(:placeholder-shown) { border-color: #10b981; }
+    .validity-grid {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .prop-name { color: #94a3b8; }
+    .prop-val { font-weight: bold; }
+    .val-true { color: #ef4444; }
+    .val-false { color: #10b981; }
+    button {
+      width: 100%;
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover { background: #0369a1; }
+    a.back { color: #94a3b8; text-decoration: none; font-size: 0.85rem; display: inline-block; margin-top: 1.5rem; }
+    a.back:hover { color: white; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>📋 Native Form Validation Inspector</h1>
+    <p class="sub">Inspect live <code>ValidityState</code> booleans as you type in each input!</p>
+
+    <form id="sampleForm" novalidate>
+      <div class="form-group">
+        <label for="username">Username (5-12 chars, letters/numbers only):</label>
+        <input type="text" id="username" required minlength="5" maxlength="12" pattern="^[a-zA-Z0-9]+$" placeholder="e.g. shivang99">
+      </div>
+
+      <div class="form-group">
+        <label for="emailInput">Work Email:</label>
+        <input type="email" id="emailInput" required placeholder="name@company.com">
+      </div>
+
+      <button type="submit">Validate with reportValidity()</button>
+    </form>
+
+    <div class="validity-grid" id="validityInspector">
+      <div style="color:#38bdf8; margin-bottom:0.5rem; font-weight:bold;">Live ValidityState for Username:</div>
+      <div id="inspectorRows">Type in the username input above to inspect state...</div>
+    </div>
+
+    <a href="../10-dom-manipulation/index.html" class="back">← Return to DOM Manipulation Hub</a>
+  </div>
+
+  <script>
+    const usernameInput = document.getElementById("username");
+    const inspectorRows = document.getElementById("inspectorRows");
+    const form = document.getElementById("sampleForm");
+
+    function renderValidityState() {
+      const v = usernameInput.validity;
+      const flags = [
+        ["validity.valid", v.valid],
+        ["validity.valueMissing", v.valueMissing],
+        ["validity.typeMismatch", v.typeMismatch],
+        ["validity.patternMismatch", v.patternMismatch],
+        ["validity.tooShort", v.tooShort],
+        ["validity.tooLong", v.tooLong],
+        ["validity.customError", v.customError]
+      ];
+
+      inspectorRows.innerHTML = flags.map(([name, val]) => `
+        <div class="status-row">
+          <span class="prop-name">${name}</span>
+          <span class="prop-val ${val ? 'val-true' : 'val-false'}">${val}</span>
+        </div>
+      `).join("");
+    }
+
+    usernameInput.addEventListener("input", renderValidityState);
+    renderValidityState();
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!usernameInput.checkValidity()) {
+        usernameInput.reportValidity();
+      } else {
+        alert("🎉 Form inputs passed all Constraint Validation checks!");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -140,4 +140,41 @@ Quick lookup guide of standard built-in JavaScript methods, functions, and prope
 | `fn.apply(thisArg, [args])` | **Immediate** | Array of arguments | Result of `fn` |
 | `fn.bind(thisArg, ...args)` | **Deferred** | Comma-separated list | New function with permanently bound `this` |
 
+---
+
+## ⚙️ 9. Bitwise Operators Reference
+
+| Operator | Name | Operation | Example | Result |
+| :--- | :--- | :--- | :--- | :--- |
+| `&` | AND | `1` if both bits are `1` | `5 & 1` (`0101 & 0001`) | `1` |
+| `\|` | OR | `1` if either bit is `1` | `5 \| 2` (`0101 \| 0010`) | `7` |
+| `^` | XOR | `1` if bits are different | `5 ^ 1` (`0101 ^ 0001`) | `4` |
+| `~` | NOT | Inverts all bits | `~5` | `-6` |
+| `<<` | Left Shift | Shifts bits left (multiplies by $2^n$) | `5 << 1` | `10` |
+| `>>` | Right Shift | Shifts bits right (divides by $2^n$) | `10 >> 1` | `5` |
+| `>>>` | Zero-fill Right Shift | Shifts right, fills left with zeros | `-5 >>> 1` | `2147483645` |
+
+---
+
+## 🔤 10. Base64 & Web Encoders
+
+| Method | Description | Example |
+| :--- | :--- | :--- |
+| `btoa(str)` | Encodes ASCII string to Base64 | `btoa("hello")` &rarr; `"aGVsbG8="` |
+| `atob(b64)` | Decodes Base64 string to ASCII | `atob("aGVsbG8=")` &rarr; `"hello"` |
+| `structuredClone(obj)` | Deep clones objects including circular references | `const copy = structuredClone(obj)` |
+
+---
+
+## ⏱️ 11. Performance Timing API
+
+| Method | Description | Resolution |
+| :--- | :--- | :--- |
+| `performance.now()` | Monotonic timestamp from page load | Microseconds ($10^{-6}$ s) |
+| `console.time(label)` | Starts named stopwatch | Milliseconds |
+| `console.timeEnd(label)` | Stops stopwatch & prints duration | Milliseconds |
+| `requestAnimationFrame(fn)` | Syncs animation with GPU display refresh rate | 60 FPS / 120 FPS |
+| `cancelAnimationFrame(id)` | Cancels queued animation frame | N/A |
+
+
 

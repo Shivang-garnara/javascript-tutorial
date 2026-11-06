@@ -89,3 +89,4 @@ IndexedDB is a full, transactional, object-oriented database running inside the 
 > 🚨 **Critical Rule:** Never store sensitive authentication tokens (like refresh tokens or password hashes) in `localStorage` if your app accepts third-party scripts or user-generated HTML, because any XSS bug allows attackers to run `localStorage.getItem("token")` and steal user sessions.
 >
 > **Best Practice:** Store sensitive session tokens in **`HttpOnly`, `Secure`, `SameSite=Lax` cookies** managed by your backend server.
+

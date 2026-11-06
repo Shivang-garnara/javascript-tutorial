@@ -72,3 +72,4 @@ Using `event.target.closest(".delete-btn")` climbs up to find the enclosing butt
 ## 4. When NOT to Use Event Delegation
 - Events that do not bubble naturally (such as `blur`, `focus`, `mouseenter`, `mouseleave`). *Note: `focusin` and `focusout` do bubble.*
 - When tracking delicate mouse coordinates on a specific canvas element.
+

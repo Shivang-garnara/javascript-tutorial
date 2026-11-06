@@ -111,3 +111,4 @@ In security-sensitive applications, creating an object with no prototype protect
 const secureMap = Object.create(null);
 console.log(secureMap.toString); // undefined (No prototype chain at all!)
 ```
+

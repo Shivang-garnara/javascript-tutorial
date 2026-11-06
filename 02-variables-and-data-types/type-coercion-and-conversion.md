@@ -148,3 +148,4 @@ Boolean("");         // false
 2. **Use `Array.isArray()`** to check arrays, never `typeof`.
 3. **Use `Number.isNaN(val)`** to test for NaN, never `val === NaN`.
 4. **Use `Number()` or `parseInt(str, 10)`** explicitly when processing form inputs.
+

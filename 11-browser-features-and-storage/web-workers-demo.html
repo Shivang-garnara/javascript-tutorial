@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Workers Concurrency Demo | JavaScript Curriculum</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    .card {
+      max-width: 700px;
+      width: 100%;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    h1 { color: #38bdf8; font-size: 1.7rem; margin-bottom: 0.5rem; }
+    p.sub { color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .spinner-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 4px solid #334155;
+      border-top: 4px solid #38bdf8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    button {
+      flex: 1;
+      padding: 0.85rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-worker { background: #0284c7; color: white; }
+    .btn-worker:hover { background: #0369a1; }
+    .btn-main { background: #dc2626; color: white; }
+    .btn-main:hover { background: #b91c1c; }
+    .log-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      min-height: 120px;
+      color: #38bdf8;
+    }
+    a.back { color: #94a3b8; text-decoration: none; font-size: 0.85rem; display: inline-block; margin-top: 1.5rem; }
+    a.back:hover { color: white; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🧵 Web Workers Concurrency Lab</h1>
+    <p class="sub">Compare running a heavy 5,000,000 prime loop on the Main Thread (which freezes UI) vs on a Web Worker (which stays smooth)!</p>
+
+    <div class="spinner-box">
+      <div class="spinner"></div>
+      <div>
+        <strong>Main UI Thread Heartbeat:</strong><br>
+        <span style="color:#94a3b8; font-size:0.85rem;">If this spinner stops turning, the main UI thread has frozen!</span>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-worker" id="runWorkerBtn">Run on Worker Thread (Smooth ✨)</button>
+      <button class="btn-main" id="runMainBtn">Run on Main Thread (Freezes 🧊)</button>
+    </div>
+
+    <div class="log-box" id="logBox">Status: Ready to compute.</div>
+
+    <a href="../11-browser-features-and-storage/storage-interactive-tester.html" class="back">← Return to Storage Tester</a>
+  </div>
+
+  <script>
+    const logBox = document.getElementById("logBox");
+
+    function log(msg) {
+      logBox.innerHTML = `[${new Date().toLocaleTimeString()}] ${msg}<br>` + logBox.innerHTML;
+    }
+
+    // 1. Worker Thread Execution (Non-blocking)
+    document.getElementById("runWorkerBtn").addEventListener("click", () => {
+      log("🚀 Starting background calculation via Web Worker...");
+      const worker = new Worker("worker-task.js");
+      worker.postMessage({ limit: 4000000 });
+
+      worker.onmessage = function (e) {
+        log(`✅ Worker Thread Finished! Found ${e.data.primeCount.toLocaleString()} primes up to ${e.data.limit.toLocaleString()} in ${e.data.timeTakenMs}ms! (Spinner never froze)`);
+        worker.terminate();
+      };
+    });
+
+    // 2. Main Thread Execution (Blocking)
+    document.getElementById("runMainBtn").addEventListener("click", () => {
+      log("⚠️ Starting synchronous loop on Main Thread... NOTICE THE SPINNER FREEZE!");
+      setTimeout(() => {
+        const start = performance.now();
+        let primeCount = 0;
+        const limit = 4000000;
+        for (let n = 2; n <= limit; n++) {
+          let isPrime = true;
+          for (let d = 2; d * d <= n; d++) {
+            if (n % d === 0) { isPrime = false; break; }
+          }
+          if (isPrime) primeCount++;
+        }
+        const time = (performance.now() - start).toFixed(2);
+        log(`🧊 Main Thread Finished: ${primeCount.toLocaleString()} primes found in ${time}ms (UI was totally unresponsive!)`);
+      }, 50);
+    });
+  </script>
+</body>
+</html>

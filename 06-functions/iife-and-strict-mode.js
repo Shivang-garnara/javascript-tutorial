@@ -67,3 +67,4 @@ const databaseConnectionConfig = (() => {
 })();
 
 console.log("Database URI generated via Arrow IIFE:", databaseConnectionConfig);
+

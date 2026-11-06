@@ -56,3 +56,4 @@ console.log("realType(new Date()):", realType(new Date())); // "date"
 console.log("realType(/abc/i)   :", realType(/abc/i));      // "regexp"
 console.log("realType(new Map()):", realType(new Map()));   // "map"
 console.log("realType(new Set()):", realType(new Set()));   // "set"
+

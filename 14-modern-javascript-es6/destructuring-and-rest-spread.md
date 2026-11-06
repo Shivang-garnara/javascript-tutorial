@@ -144,3 +144,4 @@ console.log(safeUser); // { id: 55, name: "Shivang" } (Safe to send to frontend!
 |---|---|---|
 | **Spread (`...`)** | Right-hand side, function calls, inside `[...]` or `{...}` | **Unpacks** items into individual pieces |
 | **Rest (`...`)** | Function parameter list or left-hand side of destructuring | **Gathers** remaining items into a single array / object |
+

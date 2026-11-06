@@ -62,3 +62,4 @@ const order2 = { id: "ORD-902", total: 1200 };
 console.log(processOrder(order1));
 console.log(processOrder(order2));
 console.log(processOrder(order1)); // Duplicate detection in action!
+

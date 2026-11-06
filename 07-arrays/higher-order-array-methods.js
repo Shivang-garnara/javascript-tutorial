@@ -63,3 +63,4 @@ const frequencyMap = skills.reduce((map, skill) => {
   return map;
 }, {});
 console.log("Skills Frequency:", frequencyMap);
+

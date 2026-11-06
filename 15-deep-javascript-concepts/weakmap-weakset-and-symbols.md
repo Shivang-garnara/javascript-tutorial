@@ -104,3 +104,4 @@ function handleUserRequest(reqObject) {
 - Use **`Symbol`** when you need unique property keys that never collide with third-party code or libraries.
 - Use **`WeakMap`** when you want to associate private data or metadata with an object or DOM node without causing memory leaks.
 - Use **`WeakSet`** to tag or mark objects without preventing their garbage collection.
+

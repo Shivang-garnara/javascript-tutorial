@@ -80,3 +80,4 @@ const numbersObj = {
 // Borrowing Array.prototype.join for an array-like object:
 const joined = Array.prototype.join.call(numbersObj, " -> ");
 console.log("Borrowed Array.join:", joined);
+

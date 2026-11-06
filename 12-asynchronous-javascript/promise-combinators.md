@@ -117,3 +117,4 @@ Do all tasks MUST succeed for the screen to render?
         ├── Do you want the first SUCCESSFUL result? ──► Promise.any()
         └── Do you want the first settled (even timeout)? ─► Promise.race()
 ```
+

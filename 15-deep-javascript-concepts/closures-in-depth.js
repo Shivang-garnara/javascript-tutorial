@@ -56,3 +56,4 @@ for (let step = 1; step <= 3; step++) {
     console.log(`[Timer Step] = ${step} (Clean lexical environment)`);
   }, step * 50);
 }
+

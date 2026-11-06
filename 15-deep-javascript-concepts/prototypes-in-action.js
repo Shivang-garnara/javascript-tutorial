@@ -50,3 +50,4 @@ const user2 = new UserAccount("admin", "admin@internal.net");
 console.log("User 1 card:", user1.getContactCard());
 console.log("User 2 card:", user2.getContactCard());
 console.log("Both instances share the exact same method reference:", user1.getContactCard === user2.getContactCard); // true
+

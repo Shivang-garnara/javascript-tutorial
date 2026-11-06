@@ -115,3 +115,4 @@ console.log(safeHTML);
 - Any JavaScript expression fits inside `${...}`
 - Multi-line strings preserve line breaks and indentation
 - Tagged templates `tagFunction`\`...\`\` allow custom string processing (used heavily in styled-components, GraphQL queries, and SQL escaping)
+

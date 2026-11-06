@@ -88,3 +88,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   log("Event delegation initialized on parent #taskList");
 });
+
