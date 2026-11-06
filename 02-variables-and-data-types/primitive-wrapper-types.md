@@ -83,3 +83,4 @@ if (active) {
 - Use `String(val)`, `Number(val)`, `Boolean(val)` without `new` for clean type conversions.
 - Never use `new String()`, `new Number()`, or `new Boolean()`.
 - Auto-boxing allows primitives to feel like objects while keeping memory consumption minimal.
+

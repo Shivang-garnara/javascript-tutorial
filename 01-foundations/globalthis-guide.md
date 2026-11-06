@@ -56,3 +56,4 @@ console.log(globalThis.__APP_VERSION__); // "2.5.0"
      console.log("Native Fetch API is available!");
    }
    ```
+

@@ -113,3 +113,4 @@ If JavaScript had true Pass-by-Reference (like C++ `&ref`), `originalPerson` wou
 | **Copied By** | **Value** (Independent copy) | **Reference** (Shared memory pointer) |
 | **Mutability** | Immutable | Mutable |
 | **Equality (`===`)** | Compares **actual values** | Compares **memory reference addresses** |
+

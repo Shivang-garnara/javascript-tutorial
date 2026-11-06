@@ -51,3 +51,4 @@ const itemB2 = new CartItemClass("Keyboard", 2500);
 
 console.log("Classes share method on prototype:", itemB1.getTotal === itemB2.getTotal); // true (Memory efficient!)
 console.log("Factory functions create separate methods:", itemA.getTotal === createCartItem("x", 1).getTotal); // false
+

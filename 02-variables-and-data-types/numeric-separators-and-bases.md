@@ -66,3 +66,4 @@ console.log(value.toString(2));  // "11111111" (Binary string)
 console.log(value.toString(8));  // "377" (Octal string)
 console.log(value.toString(16)); // "ff" (Hexadecimal string)
 ```
+

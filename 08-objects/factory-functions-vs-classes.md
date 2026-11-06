@@ -51,3 +51,4 @@ console.log(user.getProfile());
 ## 4. When to Choose ES6 Classes
 - When creating **thousands or millions of instances** (saving RAM by sharing methods on `.prototype`).
 - When building frameworks or libraries with established OOP hierarchies (like Angular, NestJS, or Game Engines).
+

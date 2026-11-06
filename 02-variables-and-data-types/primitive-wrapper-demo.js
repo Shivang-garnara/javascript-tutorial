@@ -35,3 +35,4 @@ console.log("new Boolean(false) is TRUTHY :", Boolean(falseWrapper)); // true!
 if (falseWrapper) {
   console.log("⚠️ WARNING: Code executed inside if (new Boolean(false)) because objects are always truthy!");
 }
+

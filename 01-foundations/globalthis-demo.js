@@ -23,3 +23,4 @@ features.forEach(feat => {
 console.log("\n=== 3. Attaching Universal Safe Metadata ===");
 globalThis.__SYSTEM_BOOT_TIME__ = new Date().toISOString();
 console.log("Retrieved universal timestamp from globalThis:", globalThis.__SYSTEM_BOOT_TIME__);
+

@@ -35,3 +35,4 @@ async function simulateBootstrap() {
   const appConfig = await simulateBootstrap();
   console.log("3. System Ready:", appConfig);
 })();
+

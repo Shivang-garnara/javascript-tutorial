@@ -33,3 +33,4 @@ console.log(`${sampleNumber} in hex is   : ${hexString}`);
 // String back to decimal number
 console.log(`parseInt("${binaryString}", 2)  =`, parseInt(binaryString, 2));
 console.log(`parseInt("${hexString}", 16)     =`, parseInt(hexString, 16));
+

@@ -45,3 +45,4 @@ const obj2 = { id: 1 };
 
 console.log("obj1 === obj2 :", obj1 === obj2); // false! Distinct heap allocations
 console.log("obj1 === obj1 :", obj1 === obj1); // true! Identical memory address
+
