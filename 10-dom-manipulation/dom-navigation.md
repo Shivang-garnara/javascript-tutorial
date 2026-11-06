@@ -56,3 +56,4 @@ console.log(menu.children.length);               // 3
   - `3` = Text Node
   - `8` = Comment Node
   - `9` = Document Node
+

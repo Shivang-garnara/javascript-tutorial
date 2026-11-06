@@ -74,3 +74,4 @@ const view = new DataView(buffer);
 view.setInt16(0, 500, true);
 console.log("Read back:", view.getInt16(0, true)); // 500
 ```
+

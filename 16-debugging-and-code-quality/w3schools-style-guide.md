@@ -92,3 +92,4 @@ if (status === "active") { ... }
 // ❌ Bad (Allows unintended type coercion):
 if (status == "active") { ... }
 ```
+

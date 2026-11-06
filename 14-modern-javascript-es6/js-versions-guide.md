@@ -31,3 +31,4 @@ JavaScript was invented by **Brendan Eich** in 1995 and became an ECMA standard 
 - For legacy enterprise browsers (like older Internet Explorer), developers use:
   - **Transpilers (Babel):** Converts modern ES6+ syntax back into older ES5 syntax automatically.
   - **Polyfills (core-js):** Implements missing modern functions (like `Array.prototype.flat`) on older engines.
+

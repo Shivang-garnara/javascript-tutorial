@@ -95,3 +95,4 @@ JavaScript has a built-in method to trigger the browser's print dialog:
 ```html
 <button onclick="window.print()">Print This Page 🖨️</button>
 ```
+

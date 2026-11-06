@@ -104,3 +104,4 @@ Quick lookup guide of standard built-in JavaScript methods, functions, and prope
 | `isFinite(val)` | Checks if finite number | `isFinite(100)` &rarr; `true` |
 | `encodeURI(uri)` | Encodes URI characters | `encodeURI("https://a.com?q=a b")` |
 | `decodeURI(uri)` | Decodes encoded URI | `decodeURI("a%20b")` &rarr; `"a b"` |
+

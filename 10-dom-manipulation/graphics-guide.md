@@ -62,3 +62,4 @@ ctx.fillRect(10, 10, 180, 80);
 
 ## 3. Smooth Animations with `requestAnimationFrame()`
 To animate shapes (like a bouncing ball or video game character), call `requestAnimationFrame(animateFunction)`. The browser executes the function right before the next screen refresh (60 or 120 FPS) smoothly!
+

@@ -63,3 +63,4 @@ Beyond DOM and Storage, modern browsers expose powerful Web APIs:
 - **Notifications API:** Send desktop push notifications (`new Notification("Alert!")`).
 - **Web Workers API:** Run background scripts on separate CPU threads without blocking the UI.
 - **Fullscreen API:** Request full-screen viewing (`element.requestFullscreen()`).
+

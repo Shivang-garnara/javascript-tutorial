@@ -65,3 +65,4 @@ setInterval(() => {
 
 ## 🚀 How to Run
 Simply double-click [`index.html`](file:///C:/Users/Shivang/Downloads/javascript%20basic/w3schools-examples/index.html) to open the unified W3Schools showcase in your web browser!
+

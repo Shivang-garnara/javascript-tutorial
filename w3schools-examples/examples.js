@@ -208,3 +208,4 @@ function toggleAccordion(panelId) {
     panel.style.display = "block";
   }
 }
+

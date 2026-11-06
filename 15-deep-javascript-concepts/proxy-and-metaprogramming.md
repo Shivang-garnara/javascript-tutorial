@@ -92,3 +92,4 @@ appState.likes = 1; // Logs: "State changed! likes is now 1. Re-rendering screen
 - `has(target, prop)`: Intercepts `'prop' in obj`.
 - `deleteProperty(target, prop)`: Intercepts `delete obj.prop`.
 - `apply(target, thisArg, argumentsList)`: Intercepts function execution `func()`.
+
