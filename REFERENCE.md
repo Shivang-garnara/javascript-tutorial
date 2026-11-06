@@ -104,6 +104,7 @@ Quick lookup guide of standard built-in JavaScript methods, functions, and prope
 | `isFinite(val)` | Checks if finite number | `isFinite(100)` &rarr; `true` |
 | `encodeURI(uri)` | Encodes URI characters | `encodeURI("https://a.com?q=a b")` |
 | `decodeURI(uri)` | Decodes encoded URI | `decodeURI("a%20b")` &rarr; `"a b"` |
+| `globalThis` | Universal access to global object across runtimes | `globalThis.fetch` |
 
 ---
 
@@ -115,6 +116,7 @@ Quick lookup guide of standard built-in JavaScript methods, functions, and prope
 | `Promise.allSettled(iterable)` | ALL promises finish (settle) | Never rejects | Array of `{ status, value/reason }` |
 | `Promise.race(iterable)` | First promise settles | First promise rejects | Value/reason of first settled |
 | `Promise.any(iterable)` | First promise fulfills | ALL promises reject | First resolved value (or AggregateError) |
+| `Promise.withResolvers()` (ES2024) | On demand via returned `resolve` | On demand via returned `reject` | `{ promise, resolve, reject }` |
 | `Promise.resolve(val)` | Returns fulfilled promise | N/A | Promise fulfilled with `val` |
 | `Promise.reject(err)` | N/A | Returns rejected promise | Promise rejected with `err` |
 
